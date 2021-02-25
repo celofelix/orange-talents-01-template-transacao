@@ -13,7 +13,7 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import br.com.zup.transacao.eventos.EventoDeTransacao;
+import br.com.zup.transacao.trasacoes.EventoDeTransacao;
 
 @Configuration
 public class KafkaConfiguration {

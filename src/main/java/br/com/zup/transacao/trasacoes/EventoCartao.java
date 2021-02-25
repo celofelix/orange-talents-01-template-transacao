@@ -1,4 +1,4 @@
-package br.com.zup.transacao.eventos;
+package br.com.zup.transacao.trasacoes;
 
 public class EventoCartao {
 

@@ -1,4 +1,4 @@
-package br.com.zup.transacao.eventos;
+package br.com.zup.transacao.trasacoes;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;

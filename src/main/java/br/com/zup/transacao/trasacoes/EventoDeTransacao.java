@@ -1,4 +1,4 @@
-package br.com.zup.transacao.eventos;
+package br.com.zup.transacao.trasacoes;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
