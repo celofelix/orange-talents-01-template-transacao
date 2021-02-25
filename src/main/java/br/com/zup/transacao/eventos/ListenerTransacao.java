@@ -1,13 +1,25 @@
 package br.com.zup.transacao.eventos;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ListenerTransacao {
-	
-	@KafkaListener(topics = "${spring.kafka.topic.transactions}")
+
+	@Autowired
+	private CartaoRepository cartaoRepository;
+
+	@Autowired
+	private EstabelecimentoRepository estabelecimentoRepository;
+
+	@Autowired
+	private TransacaoRepository transacaoRepository;
+
+	@KafkaListener(topics = "transacoes")
 	public void ouvir(EventoDeTransacao eventoDeTransacao) {
-		System.out.println(eventoDeTransacao);
+		
+		Transacao transacao = eventoDeTransacao.toModel(eventoDeTransacao, cartaoRepository, estabelecimentoRepository);
+		transacaoRepository.save(transacao);
 	}
 }

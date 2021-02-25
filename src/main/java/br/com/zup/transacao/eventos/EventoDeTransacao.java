@@ -7,9 +7,13 @@ public class EventoDeTransacao {
 
 	private String id;
 	private BigDecimal valor;
-	private Estabelecimento estabelecimento;
-	private Cartao cartao;
+	private EventoEstabelecimento estabelecimento;
+	private EventoCartao cartao;
 	private LocalDateTime efetivadaEm;
+
+	public EventoDeTransacao() {
+
+	}
 
 	public String getId() {
 		return id;
@@ -19,16 +23,30 @@ public class EventoDeTransacao {
 		return valor;
 	}
 
-	public Estabelecimento getEstabelecimento() {
+	public EventoEstabelecimento getEstabelecimento() {
 		return estabelecimento;
 	}
 
-	public Cartao getCartao() {
+	public EventoCartao getCartao() {
 		return cartao;
 	}
 
 	public LocalDateTime getEfetivadaEm() {
 		return efetivadaEm;
+	}
+
+	@Override
+	public String toString() {
+		return "EventoDeTransacao [id=" + id + ", valor=" + valor + ", estabelecimento=" + estabelecimento + ", cartao="
+				+ cartao + ", efetivadaEm=" + efetivadaEm + "]";
+	}
+
+	public Transacao toModel(EventoDeTransacao transacaoEvento, CartaoRepository cartaoRepository,
+			EstabelecimentoRepository estabelecimentoRepository) {		
+
+		Transacao transacao = new Transacao(transacaoEvento.getId(), transacaoEvento.getValor(),
+				estabelecimento.toModel(), cartao.toModel(), efetivadaEm);
+		return transacao;
 	}
 
 }
