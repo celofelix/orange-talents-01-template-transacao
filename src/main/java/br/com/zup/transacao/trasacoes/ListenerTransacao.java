@@ -18,7 +18,7 @@ public class ListenerTransacao {
 	@Autowired
 	private TransacaoRepository transacaoRepository;
 
-	@KafkaListener(topics = "transacoes")
+	@KafkaListener(topics = "${spring.kafka.topic.transactions}")
 	public void ouvir(EventoDeTransacao eventoDeTransacao) {
 		
 		Transacao transacao = eventoDeTransacao.toModel(eventoDeTransacao, cartaoRepository, estabelecimentoRepository);
