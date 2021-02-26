@@ -12,23 +12,23 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Transacao {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String idTransacao;
 	private BigDecimal valor;
-	
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Estabelecimento estabelecimento;
-	
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	private Cartao cartao;	
-	
+
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	private Cartao cartao;
+
 	private LocalDateTime efetivadaEm;
-	
+
 	public Transacao() {
-		
+
 	}
 
 	public Transacao(String id, BigDecimal valor, Estabelecimento estabelecimento, Cartao cartao,
@@ -63,13 +63,4 @@ public class Transacao {
 	public LocalDateTime getEfetivadaEm() {
 		return efetivadaEm;
 	}
-
-	@Override
-	public String toString() {
-		return "Transacao [id=" + id + ", idTransacao=" + idTransacao + ", valor=" + valor + ", estabelecimento="
-				+ estabelecimento + ", cartao=" + cartao + ", efetivadaEm=" + efetivadaEm + "]";
-	}
-	
-	
-
 }

@@ -3,8 +3,10 @@ package br.com.zup.transacao.trasacoes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
+@Transactional
 public class ListenerTransacao {
 
 	@Autowired

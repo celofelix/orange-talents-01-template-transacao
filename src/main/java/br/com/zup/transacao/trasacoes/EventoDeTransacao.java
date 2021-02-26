@@ -42,10 +42,10 @@ public class EventoDeTransacao {
 	}
 
 	public Transacao toModel(EventoDeTransacao transacaoEvento, CartaoRepository cartaoRepository,
-			EstabelecimentoRepository estabelecimentoRepository) {		
+			EstabelecimentoRepository estabelecimentoRepository) {
 
-		Transacao transacao = new Transacao(transacaoEvento.getId(), transacaoEvento.getValor(),
-				estabelecimento.toModel(), cartao.toModel(), efetivadaEm);
+		Transacao transacao = new Transacao(id, valor, estabelecimento.toModel(estabelecimentoRepository),
+				cartao.toModel(cartaoRepository), efetivadaEm);
 		return transacao;
 	}
 

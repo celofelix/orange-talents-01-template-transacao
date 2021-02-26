@@ -1,9 +1,11 @@
 package br.com.zup.transacao.trasacoes;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CartaoRepository extends JpaRepository<Cartao, Long> {
 
-	Cartao findById(String id);
+	List<Cartao> findByIdCartao(String id);
 
 }

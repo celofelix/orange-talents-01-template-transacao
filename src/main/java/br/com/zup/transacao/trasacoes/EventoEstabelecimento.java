@@ -1,5 +1,7 @@
 package br.com.zup.transacao.trasacoes;
 
+import java.util.List;
+
 public class EventoEstabelecimento {
 
 	private String nome;
@@ -22,8 +24,12 @@ public class EventoEstabelecimento {
 		return endereco;
 	}
 
-	public Estabelecimento toModel() {
-		return new Estabelecimento(nome, cidade, endereco);
+	public Estabelecimento toModel(EstabelecimentoRepository estabelecimentoRepository) {
+		List<Estabelecimento> estabelecimento = estabelecimentoRepository.findByNomeAndCidadeAndEndereco(nome, cidade, endereco);
+		if(estabelecimento.isEmpty()) {
+			return new Estabelecimento(nome, cidade, endereco);
+		}
+		return estabelecimento.get(0);
 	}
 
 }

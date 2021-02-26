@@ -19,8 +19,12 @@ public class Cartao {
 	private String idCartao;
 	private String email;
 
-	@OneToMany(mappedBy = "cartao", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	private List<Transacao> transacoes = new ArrayList<>();	
+	@OneToMany(mappedBy = "cartao", cascade = {CascadeType.PERSIST})
+	private List<Transacao> transacoes = new ArrayList<>();
+
+	public Cartao() {
+
+	}
 
 	public Cartao(String idCartao, String email) {
 		this.idCartao = idCartao;
@@ -42,4 +46,5 @@ public class Cartao {
 	public List<Transacao> getTransacoes() {
 		return transacoes;
 	}
+
 }

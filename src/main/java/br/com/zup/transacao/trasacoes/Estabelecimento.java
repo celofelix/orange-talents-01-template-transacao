@@ -21,7 +21,7 @@ public class Estabelecimento {
 	private String cidade;
 	private String endereco;
 	
-	@OneToMany(mappedBy = "estabelecimento", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@OneToMany(mappedBy = "estabelecimento", cascade = {CascadeType.PERSIST})
 	private List<Transacao> transacoes = new ArrayList<>();
 	
 	public Estabelecimento() {
